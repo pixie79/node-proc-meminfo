@@ -1,6 +1,5 @@
 "use strict";
 var fs = require('fs');
-var async = require('async');
 
 function parseData(err, scheme, meminfo, callback) {
   var meminfos = meminfo.split('\n'), data = [];
