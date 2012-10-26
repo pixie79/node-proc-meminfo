@@ -7,6 +7,7 @@ function parseData(err, scheme, meminfo, callback) {
   meminfos.forEach(function (item) {
     item = item.replace(/\s+/, ' ');
     item = item.replace(/\skB/, '');
+    item = item.replace(/\:/, '');
     if (item !== '') {
       data.push(scheme + ".proc.meminfo." + item + " " + timestamp + "\n");
     }
