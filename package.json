@@ -1,13 +1,31 @@
-{ "name": "node-proc-meminfo",
- "version": "0.0.1",
- "engines": [ "node >=0.8.11" ],
- "description": "Proc Meminfo interface Gathering",
- "author": "Mark Olliver <pixie79.me.com> (http://pixie79.com)",
- "keywords" : [ "meminfo" ],
- "repository":
-  { "type" : "git",
-     "url" : "https://github.com/pixie79/node-proc-meminfo.git"
-      },
-       "bin" : { "meminfo" : "./bin/meminfo.js" },
-       "lib" : { "meminfo" : "./lib/meminfoProc" }
+{
+  "name": "meminfo-metrics",
+  "version": "0.0.1",
+  "engines": [
+    "node >=0.8.11"
+  ],
+  "description": "Interface for gathering stats from /proc/meminfo and outputting them to STDOUT ready for onward delivery to graphite for example via sensu.",
+  "author": "Mark Olliver <pixie79.me.com> (http://pixie79.com)",
+  "keywords": [
+    "meminfo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixie79/node-proc-meminfo.git"
+  },
+  "bin": {
+    "meminfo": "./bin/meminfo.js"
+  },
+  "lib": {
+    "meminfo": "./lib/meminfoProc"
+  },
+  "main": "bin/meminfo.js",
+  "dependencies": {
+    "node-getopt": "~0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "bin/meminfo.js -m -s test"
+  },
+  "license": "BSD"
 }
