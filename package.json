@@ -1,0 +1,13 @@
+{ "name": "node-proc-meminfo",
+ "version": "0.0.1",
+ "engines": [ "node >=0.8.11" ],
+ "description": "Proc Meminfo interface Gathering",
+ "author": "Mark Olliver <pixie79.me.com> (http://pixie79.com)",
+ "keywords" : [ "meminfo" ],
+ "repository":
+  { "type" : "git",
+     "url" : "https://github.com/pixie79/node-proc-meminfo.git"
+      },
+       "bin" : { "meminfo" : "./bin/meminfo.js" },
+       "lib" : { "meminfo" : "./lib/meminfoProc" }
+}
