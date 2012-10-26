@@ -1,0 +1,30 @@
+"use strict";
+var fs = require('fs');
+var async = require('async');
+
+function parseData(err, scheme, meminfo, callback) {
+  var meminfos = meminfo.split('\n'), data = [];
+  var timestamp = Math.round(Date.now() / 1000);
+  meminfos.forEach(function (item) {
+    item = item.replace(/\s+/, ' ');
+    item = item.replace(/\skB/, '');
+    if (item !== '') {
+      data.push(scheme + ".proc.meminfo." + item + " " + timestamp + "\n");
+    };
+  });
+  callback(data.toString());
+}
+
+function readData(scheme, callback) {
+  var meminfo = "";
+  fs.readFile('/proc/meminfo', 'utf8', function (err, meminfo) {
+    if (err) {
+      throw err;
+    }
+    parseData(err, scheme, meminfo, callback);
+  });
+}
+
+exports.doit = function (scheme, callback) {
+  readData(scheme, callback);
+};
